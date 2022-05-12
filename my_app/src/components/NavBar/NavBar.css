@@ -1,0 +1,19 @@
+.NavBar{
+    background-color: #f4e3d3;
+}
+.NavBarDiv{
+    display: flex;
+    justify-content: space-between;
+}
+.NavBarH1{
+    color: #7d5f56;
+    margin-left: 1rem;
+}
+.NavBarDivBotones{
+    display: flex;
+    align-items: center;
+}
+.NavBarButtom{
+    color: #7d5f56;
+    margin-right: 1rem;
+}
