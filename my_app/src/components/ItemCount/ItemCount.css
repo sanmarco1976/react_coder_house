@@ -1,0 +1,23 @@
+.divButton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.CountImagen{
+    width: 16rem;
+    height: 20rem;
+    margin-top: 2rem;
+    border-radius: 1rem;
+}
+.Button{
+    margin-left: 1rem;
+    margin-right: 1rem;
+    width: 3rem;
+    height: 2rem;
+    background-color: #f4e3d3;
+    border: #f4e3d3;
+}
+.PCount{
+    color: #f4e3d3;
+    font-size: 2rem;
+}
