@@ -17,3 +17,13 @@
     color: #7d5f56;
     margin-right: 1rem;
 }
+.NavCarrito{
+    width: 4rem;
+    height: 4rem;
+    padding: 2rem;
+}
+.divCarro{
+    display:flex;
+    font-size: 2rem;
+    color: #7d5f56;
+}
