@@ -5,9 +5,10 @@ const ItemCount = () => {
     const [count, setCount] = useState(0);
     
     const aumentarCantidad = () =>{
-        setCount((count) => count +1);
+        if (count < 5){
+            setCount((count) => count +1);
+        }
     }
-
     const disminuirCantidad = () =>{
         if(count > 0){
             setCount((count) => count -1);

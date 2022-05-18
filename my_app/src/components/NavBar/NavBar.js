@@ -8,9 +8,9 @@ const NavBar = () =>{
             <div className="NavBarDiv">  
                 <ItemListContainer greeting={"FELIXA"} />
                 <div className="NavBarDivBotones">
-                    <buttom className="NavBarButtom" onClick ={() => console.log('click')}>Inicio</buttom>
-                    <buttom className="NavBarButtom" onClick ={() => console.log('click')}>Productos</buttom>
-                    <buttom className="NavBarButtom" onClick ={() => console.log('click')}>Contacto</buttom>
+                    <button className="NavBarButtom" onClick ={() => console.log('click')}>Inicio</button>
+                    <button className="NavBarButtom" onClick ={() => console.log('click')}>Productos</button>
+                    <button className="NavBarButtom" onClick ={() => console.log('click')}>Contacto</button>
                     <CardWidget />
                 </div>
             </div>
