@@ -1,6 +1,5 @@
 import './App.css';
 import NavBar from './components/NavBar/NavBar';
-import ItemCount from './components/ItemCount/ItemCount';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 
 function App() {
@@ -10,7 +9,6 @@ function App() {
                 <NavBar />
             </header> 
             <ItemListContainer greeting={"FELIXA"} />
-            <ItemCount />
         </div >
     );
 }

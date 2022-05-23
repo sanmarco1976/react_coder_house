@@ -17,7 +17,6 @@ const ItemCount = () => {
 
     return(
         <div className='divCount'>
-            <img className= 'CountImagen' src='../Img/conj_ana2.jpg' alt='cart-widget'/>
             <div className='divButton'>
                 <button className='Button' onClick={disminuirCantidad}>-</button>
                 <p className='PCount'>{count}</p>
