@@ -1,17 +1,11 @@
 import './Item.css'
-import ItemCount from "../ItemCount/ItemCount"
 
-const Item = ({id, nombre, precio, img}) =>{
+const Item = ({id, nombre, precio, img, stock}) =>{
 
     return(
-        <div class="ItemCard">
-            <p class="NombreCard">{nombre}</p>
-            <img className= 'ImgCard' src={img} alt='cart-widget'/>
-            <ul className='UlCard'>
-                <li class="PrecioCard">${precio}</li>
-                <ItemCount />
-                <button type="button" class="AgregarCard btn btn-outline-warning add" data-id={id} onClick ={() => console.log('click')}>Agregar Al Carrito</button>
-            </ul>
+        <div className="ItemCard">
+            <p className="NombreCard">{nombre}</p>
+            <button>Ver Detalle</button>
         </div>
     )
 

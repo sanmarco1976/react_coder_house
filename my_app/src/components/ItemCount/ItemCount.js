@@ -1,11 +1,11 @@
 import {useState} from 'react'
 import './ItemCount.css'
 
-const ItemCount = () => {
+const ItemCount = ({stock}) => {
     const [count, setCount] = useState(0);
     
     const aumentarCantidad = () =>{
-        if (count < 5){
+        if (count < stock){
             setCount((count) => count +1);
         }
     }
