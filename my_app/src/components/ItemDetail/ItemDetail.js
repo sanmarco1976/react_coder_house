@@ -10,7 +10,7 @@ const ItemDetail = ({nombre, stock, img, precio, id}) => {
             <ul className='UlCard'>
                 <li className="PrecioCard">${precio}</li>
                 <ItemCount stock={stock}/>
-                <button type="button" className="AgregarCard btn btn-outline-warning add" data-id={id} onClick ={() => console.log('click')}>Agregar Al Carrito</button>
+                <button type="button" className="AgregarCard btn btn-outline-warning add" data-id={id} >Agregar Al Carrito</button>
             </ul>
         </div>
         
