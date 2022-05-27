@@ -3,9 +3,9 @@ import ItemCount from "../ItemCount/ItemCount"
 const ItemDetail = ({nombre, stock, img, precio, id}) => {
     
     return(
-        <div className="ItemCard">
+        <div className="Item">
             <h1 className='ItemDetailTitle'>Detalle Del Producto</h1>
-            <p className="NombreCard">{nombre}</p>
+            <p className="Nombre">{nombre}</p>
             <img className= 'ImgCard' src={img} alt='cart-widget'/>
             <ul className='UlCard'>
                 <li className="PrecioCard">${precio}</li>

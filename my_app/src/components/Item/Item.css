@@ -1,34 +1,33 @@
 .ItemCard{
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
     margin: 0 2rem 2rem 2rem;
-}
-.ImgCard{
+    background-color: #f4e3d3;
+    border-radius: 1rem;
     width: 17rem;
-    height: 23rem;
 }
 .NombreCard{
     align-self: center;
     font-size: 1.3rem;
-    color: #f4e3d3;
+    color: #7d5f56;
+    padding: 1rem;
 }
 
-.PrecioCard{
-    list-style: none;
-    font-size: 1.3rem;
+.VerDetalle{
+    background-color: #7d5f56;
     color: #f4e3d3;
+    font-size: 1.2rem;
+    border: #f4e3d3;
+    height: 2rem;
+    width: 7rem;
+    text-decoration: none;
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+    text-align: center;
 }
-.AgregarCard{
+.VerDetalle:hover{
     background-color: #f4e3d3;
     color: #7d5f56;
-    font-size: 1rem;
-    border: #7d5f56;
-    width: auto;
-    height: 2rem;
-}
-.DivItemList{
-    display: flex;
-    flex-wrap: wrap;
 }
