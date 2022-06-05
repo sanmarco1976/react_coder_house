@@ -25,6 +25,7 @@
     list-style: none;
     font-size: 1.7rem;
     color: #f4e3d3;
+    margin-bottom: 1rem;
 }
 .AgregarCard{
     background-color: #f4e3d3;
@@ -34,6 +35,17 @@
     width: auto;
     height: 2rem;
     border-radius: 1rem;
+}
+.FinlizarCompra{
+    background-color: #f4e3d3;
+    color: #7d5f56;
+    font-size: 1.3rem;
+    border: #7d5f56;
+    width: auto;
+    height: 2rem;
+    border-radius: 1rem;
+    padding: 0.3rem;
+    text-decoration: none;
 }
 .DivItemList{
     display: flex;
