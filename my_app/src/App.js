@@ -1,33 +1,16 @@
-import React, {createContext, useState} from 'react';
 import './App.css';
 import NavBar from './components/NavBar/NavBar';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 import {Routes, Route, BrowserRouter } from 'react-router-dom'
 import Cart from './components/Cart/Cart';
+import {CartContextProvider} from './context/CartContext';
 
-export const Context = createContext()
 
 function App() {
-
-    const[cart, setCart] = useState([])
-    console.log(cart)
-
-    const agregarItem = (productoParaAgregar) =>{
-        setCart([...cart, productoParaAgregar])
-    }
-
-    const obtenerCantidad = () =>{
-        let acumulador = 0
-        cart.forEach(prod => {
-            acumulador = acumulador + prod.count
-        })
-        return acumulador
-    }
-
     return (
         <div className = "App" >
-            <Context.Provider value={{cart, agregarItem, obtenerCantidad}}>
+            <CartContextProvider>
                 <BrowserRouter>
                     <NavBar />
                     <Routes>
@@ -37,7 +20,7 @@ function App() {
                         <Route path='/cart'element={<Cart/>}/>
                     </Routes>
                 </BrowserRouter>
-            </Context.Provider>
+            </CartContextProvider>
         </div >
     );
 }

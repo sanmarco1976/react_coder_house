@@ -26,13 +26,12 @@
     display:flex;
     font-size: 2rem;
     color: #7d5f56;
+    margin-right: 3rem;
+    text-decoration: none;
 }
 .NavLogo{
     width: 10rem;
     height: 8rem;
-}
-.divCarro{
-    margin-right: 3rem;
 }
 .NavBarButtom{
     text-decoration: none;

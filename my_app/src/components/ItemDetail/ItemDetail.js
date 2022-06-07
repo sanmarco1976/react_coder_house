@@ -2,19 +2,17 @@ import'./ItemDetail.css'
 import ItemCount from "../ItemCount/ItemCount"
 import { Link } from 'react-router-dom'
 import { useState, useContext } from 'react'
-import { Context } from '../../App'
+import CartContext from '../../context/CartContext'
 
-const ItemDetail = ({nombre, stock, img, precio, id, talle}) => {
+const ItemDetail = ({nombre, stock, img, precio, id}) => {
 
-    const [quantity, setQuantity ] = useState(0)
+    const [count, setQuantity ] = useState(0)
 
-    const {agregarItem} = useContext(Context)
+    const {agregarItem, obtenerProductos} = useContext(CartContext)
 
     const agregarCarrito = (count) =>{
-        console.log('agrrgeue')
         setQuantity(count)
         agregarItem({id, nombre, precio, count})
-        
     }
 
     return(
@@ -24,7 +22,10 @@ const ItemDetail = ({nombre, stock, img, precio, id, talle}) => {
             <img className= 'ImgCard' src={img} alt='cart-widget'/>
             <ul className='UlCard'>
                 <li className="PrecioCard">${precio}</li>
-                {quantity > 0 ? <Link to='/cart' className='FinlizarCompra'>Finalizar Compra</Link> :<ItemCount stock={stock} onConfirm = {agregarCarrito}/>}
+                {count > 0 
+                    ? <Link to='/cart' className='FinlizarCompra'>Finalizar Compra</Link> 
+                    :<ItemCount stock={stock} onConfirm = {agregarCarrito} inicial ={obtenerProductos(id)?.count} />
+                }
             </ul>
         </div>
         

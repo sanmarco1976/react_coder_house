@@ -1,16 +1,18 @@
 import {useState} from 'react'
 import './ItemCount.css'
 
-const ItemCount = ({stock, onConfirm}) => {
-    const [count, setCount] = useState(0);
-    
+const ItemCount = ({stock, inicial= 1, onConfirm}) => {
+    const [count, setCount] = useState(inicial);
+
+    console.log(inicial)
+
     const aumentarCantidad = () =>{
         if (count < stock){
             setCount((count) => count +1);
         }
     }
     const disminuirCantidad = () =>{
-        if(count > 0){
+        if(count > 1){
             setCount((count) => count -1);
         }
     }

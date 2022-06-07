@@ -1,0 +1,29 @@
+.Div1{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.CarritoDiv{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f4e3d3;
+    border: #f4e3d3;
+    width: 70%;
+    margin-bottom: 1rem;
+}
+.Carrito{
+    display: flex;
+    justify-content: center;
+}
+.DivNombre, .DivPrecio, .DivCount{
+    padding: 0 4rem 0 0;
+    font-size: 2rem;
+    color: #7d5f56;
+}
+.XCarrito{
+    width: 1.4rem;
+    height: 1.4rem;
+    padding: 1rem;
+}
