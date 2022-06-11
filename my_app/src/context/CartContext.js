@@ -1,10 +1,16 @@
-import { useState, createContext } from "react";
+import { useState, createContext, useEffect } from "react";
 
 const CartContext = createContext()
 
 export const CartContextProvider = ({children}) =>{
 
     const [cart, setCart] = useState([])
+    
+    const [total, setTotal] = useState(0)
+    
+    useEffect(() => {
+        obtenerPrecioTotal()
+    }, [cart])
     
     const agregarItem = (productoParaAgregar) =>{
         if (!estaEnCarrito(productoParaAgregar.id)) {
@@ -47,9 +53,21 @@ export const CartContextProvider = ({children}) =>{
         const newCart = cart.filter(prod => prod.id !== id)
         setCart(newCart)
     }
+    
+    const vaciarCarrito= () => {
+        setCart([])
+    }
+
+    const obtenerPrecioTotal = () =>{
+        let acumulador = 0
+        cart.forEach(prod => {
+            acumulador = acumulador + (prod.precio * prod.count)
+        })
+        setTotal(acumulador)
+    }
 
     return(
-        <CartContext.Provider value={{ cart, agregarItem, obtenerCantidad, obtenerProductos, eliminarElemento }}>
+        <CartContext.Provider value={{ cart, agregarItem, obtenerCantidad, obtenerProductos, eliminarElemento, total, vaciarCarrito }}>
             {children}
         </CartContext.Provider>
     )

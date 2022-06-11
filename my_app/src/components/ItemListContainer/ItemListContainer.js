@@ -7,11 +7,15 @@ import { useParams } from 'react-router-dom'
 const ItemListContainer = (props) =>{
     const[products, setProducts] = useState([])
 
+    const [loading, setLoading] = useState(true)
+
     const {categoria} = useParams()
     useEffect (()=>{
         if (!categoria) {
             obtenerProductos().then(response =>{
                 setProducts(response)
+            }).finally(()=>{
+                setLoading(false)
             })
         }else{
             getProductsByCategory(categoria).then(response =>{
@@ -19,6 +23,10 @@ const ItemListContainer = (props) =>{
             })
         }
     },[categoria])
+
+    if(loading){
+        return <h1 className='TituloH1' >Cargando ...</h1>
+    }
 
     return (
         <div>

@@ -4,8 +4,6 @@ import './ItemCount.css'
 const ItemCount = ({stock, inicial= 1, onConfirm}) => {
     const [count, setCount] = useState(inicial);
 
-    console.log(inicial)
-
     const aumentarCantidad = () =>{
         if (count < stock){
             setCount((count) => count +1);

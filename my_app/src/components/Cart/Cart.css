@@ -12,6 +12,7 @@
     border: #f4e3d3;
     width: 70%;
     margin-bottom: 1rem;
+    border-radius: 1rem;
 }
 .Carrito{
     display: flex;
@@ -26,4 +27,37 @@
     width: 1.4rem;
     height: 1.4rem;
     padding: 1rem;
+}
+.TituloP{
+    color: #f4e3d3;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    margin-right: 3rem;
+}
+.VaciarCarrito{
+    background-color: #f4e3d3;
+    border: #f4e3d3;
+    color: #7d5f56;
+    text-transform: uppercase;
+    font-size: 1rem;
+    margin-left: 3rem;
+}
+.DivTotalVaciar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.TituloH2{
+    color: #f4e3d3;
+    font-size: 1.5rem;
+}
+.LinkComprar{
+    font-size: 1.5rem;
+    background-color: #f4e3d3;
+    border: #f4e3d3;
+    color: #7d5f56;
+    border-radius: 1rem;
+    padding: 0.3rem;
+    text-decoration: none;
+    margin-top: 3rem;
 }
