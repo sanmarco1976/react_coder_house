@@ -1,13 +1,76 @@
 import './Cart.css'
-import { useContext } from "react"
+import { useContext, useState } from "react"
 import CartContext from "../../context/CartContext"
 import { Link } from 'react-router-dom'
-
+import { addDoc, collection, documentId, getDocs, query, where, writeBatch } from 'firebase/firestore'
+import { db } from '../../services/firebase'
+import { useNotificacion } from '../../notificacion/Notificacion'
 
 const Cart = () => {
 
     const { cart, eliminarElemento, total, vaciarCarrito, obtenerCantidad } = useContext(CartContext)
     const cantidad = obtenerCantidad()
+
+    const[loading, setLoading] = useState(false)
+
+    const {setNotificacion} = useNotificacion()
+    
+    const[compardor, setComprador] = useState({
+        nombre: '',
+        email: '',
+        telefono: ''
+    })
+    
+    const crearOrden = () =>{
+        setLoading(true)
+        const objOrden = {
+            compardor,
+            items: cart, 
+            total: total
+        }
+
+        const batch = writeBatch(db)
+
+        const sinStock = []
+
+        const ids = cart.map(prod => prod.id)
+
+        const collectionRef2 = collection(db, 'productos')
+
+        getDocs(query(collectionRef2, where(documentId(),'in', ids))).then(response =>{
+            response.docs.forEach(doc =>{
+                const dataDoc = doc.data()
+                const prodCant = cart.find(prod => prod.id === doc.id)?.count
+
+                if(dataDoc.stock >= prodCant){
+                    batch.update(doc.ref, { stock: dataDoc.stock - prodCant})
+                } else{
+                    sinStock.push({id: doc.id, ...dataDoc})
+                }
+            })
+        }).then(() => {
+            if(sinStock.length === 0){
+                const collectionRef = collection(db, 'orden')
+                return addDoc(collectionRef, objOrden)
+            } else {
+                return Promise.reject({ type: 'sin stock', productos: sinStock})
+            }
+        }).then(({ id }) =>{
+            batch.commit()
+            setNotificacion('success',`el id de su orden es ${id}`)
+            vaciarCarrito()
+        }).catch(error =>{
+            console.log(error)
+            setNotificacion('error',`Algunos productos no tienen stock`)
+        }).finally(() => {
+            setLoading(false)
+        })
+        
+    }
+
+    if(loading){
+        return <h1 className='TituloH1'>Generando su orden...</h1>
+    }
 
     if(cantidad === 0){
         return(
@@ -40,7 +103,9 @@ const Cart = () => {
             </div>
             <div className='DivTotalVaciar'>   
                     <p className='TituloP'>Total: ${total}</p>
-                    <button className='VaciarCarrito' onClick={vaciarCarrito}>vaciar Carrito</button>
+                    <button className='VaciarCarrito' onClick={vaciarCarrito}>Vaciar Carrito</button>
+                    <button className='VaciarCarrito' onClick={crearOrden}>Generar Orden</button>
+                    <Link to='/form' className='VaciarCarrito'>Llenar Formulario</Link>
             </div>
         </div>
     )

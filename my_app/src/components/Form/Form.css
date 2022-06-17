@@ -1,0 +1,28 @@
+.Alerta{
+    color: red;
+    background-color: #f4e3d3;
+    padding: 0.3rem;
+    width: auto;
+    border-radius: 1rem;
+    margin-top: 1rem;
+}
+.NombreForm, .Email, .Telefono{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+input{
+    width: 20rem;
+    height: 1.8rem;
+    background-color: #f4e3d3;
+    border: #f4e3d3;
+    color: #7d5f56;
+}
+input.EnviarForm{
+    width: 8rem;
+    height: 1.8rem;
+    margin-top: 1rem;
+}

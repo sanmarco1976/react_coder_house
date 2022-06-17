@@ -11,7 +11,7 @@ const Notificacion = ({mensaje, severity}) =>{
         heigth: 'auto',
         backgroundColor : severity === 'error' ? 'red' : '#f4e3d3',
         padding: '10px 20px 10px 20px',
-        color: '#7d5f56',
+        color:  severity === 'error' ? '#f4e3d3' : '#7d5f56',
         borderRadius: 3,
         fontSize: '1rem',
     }

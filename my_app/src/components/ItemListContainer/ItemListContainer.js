@@ -1,6 +1,5 @@
 import './ItemListContainer.css'
 import { useEffect, useState } from 'react'
-// import { getProductsByCategory, obtenerProductos } from '../../asyncmock'
 import ItemList from '../ItemList/ItemList'
 import { useParams } from 'react-router-dom'
 import { collection, getDocs, query, where } from 'firebase/firestore'
@@ -33,17 +32,6 @@ const ItemListContainer = (props) =>{
         })
 
 
-        // if (!categoria) {
-        //     obtenerProductos().then(response =>{
-        //         setProducts(response)
-        //     }).finally(()=>{
-        //         setLoading(false)
-        //     })
-        // }else{
-        //     getProductsByCategory(categoria).then(response =>{
-        //         setProducts(response)
-        //     })
-        // }
     },[categoria])
 
     if(loading){
